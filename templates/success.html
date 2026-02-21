@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Patient Registered — PrettyGoodAI Voice Bot{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="success-icon">✓</div>
+  <h1>Patient Registered</h1>
+  <p>
+    <strong>{{ name }}</strong> has been registered with phone number
+    <strong>{{ phone }}</strong>.
+  </p>
+
+  <div class="alert alert-info">
+    <strong>Next step:</strong> Register this same patient at
+    <a href="https://pgai.us/athena" target="_blank" rel="noopener">pgai.us/athena</a>
+    using the same phone number, name, and date of birth. This is what allows the
+    Athena agent to greet the caller by name and verify their identity.
+  </div>
+
+  <div class="actions">
+    <a href="/register" class="btn">Register Another Patient</a>
+    <a href="/patients" class="btn btn-secondary">View All Patients</a>
+  </div>
+</div>
+{% endblock %}

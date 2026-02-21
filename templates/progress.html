@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %}Simulation Progress — PrettyGoodAI Voice Bot{% endblock %}
+
+{% block content %}
+<div class="card wide">
+
+  <!-- Idle / starting -->
+  <div id="section-idle" class="status-section" style="display:none">
+    <div class="spinner-wrap"><div class="spinner"></div></div>
+    <h1>Starting simulation…</h1>
+    <p class="subtitle">Connecting to Twilio. The first call will begin in a moment.</p>
+  </div>
+
+  <!-- Running -->
+  <div id="section-running" class="status-section" style="display:none">
+    <div class="spinner-wrap"><div class="spinner"></div></div>
+    <h1>Simulation Running</h1>
+    <p class="subtitle">
+      Calling as <strong id="patient-name">—</strong>
+      &nbsp;·&nbsp;
+      <span id="progress-label">0 / 0 calls complete</span>
+    </p>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progress-bar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- Complete -->
+  <div id="section-complete" class="status-section" style="display:none">
+    <div class="success-icon">✓</div>
+    <h1>Simulation Complete</h1>
+    <p class="subtitle">
+      All calls finished for <strong id="patient-name-done">—</strong>.
+      Bug analysis is done — check <code>outputs/bug_report.md</code> for results.
+      Call transcripts are saved in <code>transcripts/</code>.
+    </p>
+  </div>
+
+  <!-- Call list (shown once calls start) -->
+  <div id="calls-list" style="margin-top:1.8rem; display:none">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Scenario</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="calls-tbody"></tbody>
+    </table>
+  </div>
+
+  <div class="actions" style="margin-top:1.5rem">
+    <a href="/register" class="btn btn-secondary">New Simulation</a>
+    <a href="/patients" class="btn btn-secondary">View Patients</a>
+  </div>
+
+</div>
+
+<script>
+const BADGE = {
+  pending:     { label: "Pending",   cls: "badge-pending"  },
+  in_progress: { label: "Calling…",  cls: "badge-active"   },
+  complete:    { label: "Complete",  cls: "badge-done"     },
+  error:       { label: "Error",     cls: "badge-error"    },
+};
+
+function show(id) {
+  ["section-idle", "section-running", "section-complete"].forEach(s => {
+    document.getElementById(s).style.display = (s === id) ? "" : "none";
+  });
+}
+
+function render(state) {
+  if (state.status === "running") {
+    show("section-running");
+  } else if (state.status === "complete") {
+    show("section-complete");
+    document.getElementById("patient-name-done").textContent = state.patient_name || "—";
+  } else {
+    show("section-idle");
+  }
+
+  if (state.patient_name) {
+    document.getElementById("patient-name").textContent = state.patient_name;
+  }
+
+  const pct = state.total > 0 ? Math.round((state.completed / state.total) * 100) : 0;
+  document.getElementById("progress-bar").style.width = pct + "%";
+  document.getElementById("progress-label").textContent =
+    `${state.completed} / ${state.total} calls complete`;
+
+  if (state.calls && state.calls.length > 0) {
+    document.getElementById("calls-list").style.display = "";
+    const tbody = document.getElementById("calls-tbody");
+    tbody.innerHTML = state.calls.map((c, i) => {
+      const b = BADGE[c.status] || { label: c.status, cls: "" };
+      return `<tr>
+        <td>${i + 1}</td>
+        <td>${c.scenario_name}</td>
+        <td><span class="badge ${b.cls}">${b.label}</span></td>
+      </tr>`;
+    }).join("");
+  }
+}
+
+function poll() {
+  fetch("/api/status")
+    .then(r => r.json())
+    .then(state => {
+      render(state);
+      if (state.status !== "complete" && state.status !== "error") {
+        setTimeout(poll, 4000);
+      }
+    })
+    .catch(() => setTimeout(poll, 6000));
+}
+
+poll();
+</script>
+{% endblock %}
