@@ -1,0 +1,60 @@
+CALL:     Out-of-Scope Request
+PATIENT:  Felix Omondi
+DATE:     2026-02-21T23:51:37.799593Z
+CALL SID: CA779f52d751d8f934324ff3b9b5f2cfe4
+DURATION: 187s
+TURNS:    13
+
+--- TRANSCRIPT ---
+
+[AGENT]   This call may be recorded for quality and training purposes.
+
+[AGENT]   Thanks for calling pit. At Point Orthopedics part of pretty good AI. Am I speaking with Felix?
+
+[PATIENT] Yes, that's me.
+
+[AGENT]   Got it. Can you please provide your day of birth?
+
+[PATIENT] 2002-07-04.
+
+[AGENT]   Got It Felix? How may I help you today?
+
+[PATIENT] I'm looking for a restaurant recommendation.
+
+[AGENT]   That's not something we offer. I can help with general questions about the Clinic appointments patient, cases medications, refill and insurance.
+
+[PATIENT] Can you recommend a nearby restaurant instead?
+
+[AGENT]   I'm not able to provide restaurant recommendations. If you have any questions about your Orthopedic care or appointments? I can help with that.
+
+[PATIENT] I would like to book a follow-up appointment.
+
+[AGENT]   Got it for your follow-up appointment. Do you have a preferred provider or day? And time in mind? We have openings this week and early next week.
+
+[PATIENT] I don't have a preferred provider, but I would like an appointment this week.
+
+[AGENT]   Understood let me check available, follow-up appointments with any provider for this week. 1 moment, while I fetch the options we have follow-up appointments available, this Tuesday, February 24th with Dr. Do the Howser?
+
+[PATIENT] Okay, I'll wait.
+
+[AGENT]   No problem, just let me know when you're ready to pick a time or if you have any questions about the appointments.
+
+[PATIENT] Can I get an appointment for this week instead?
+
+[AGENT]   I'm not sure I understand. Are you asking to book a follow-up appointment for this weekend? Or is this about something else?
+
+[PATIENT] I would like to book a follow-up appointment for this week, not on Tuesday.
+
+[AGENT]   Currently the only available follow-up appointments, this week are on Tuesday, February 24th.
+
+[PATIENT] Can I get on a waitlist for this week?
+
+[AGENT]   I can't add you to a wait list directly, but I can let the clinic support team know, you'd like a follow-up appointment. This week, if something opens up, would you like me to document your request for the team to contact you? If an earlier slot becomes available,
+
+[PATIENT] Yes, please document my request for the team to contact me if an earlier slot becomes available.
+
+[AGENT]   Your request has been documented, the klitik staff will review your case and contact you if an earlier appointment opens up or if a wait-list is possible, is there anything else I can help you with today?
+
+[PATIENT] No, that's all. Thank you.
+
+--- END TRANSCRIPT ---

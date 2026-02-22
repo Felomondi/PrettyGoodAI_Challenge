@@ -1,0 +1,56 @@
+CALL:     Insurance Question Mid-Call
+PATIENT:  Felix Omondi
+DATE:     2026-02-21T23:45:18.686953Z
+CALL SID: CA5ded331b20c637fb4fd255bfd5e168d0
+DURATION: 149s
+TURNS:    12
+
+--- TRANSCRIPT ---
+
+[AGENT]   This call may be recorded for quality and training purposes.
+
+[AGENT]   Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Felix?
+
+[PATIENT] Yes, that's me.
+
+[AGENT]   Got it. Can you please provide your date of birth?
+
+[PATIENT] 2002-07-04.
+
+[AGENT]   Got It Felix? How may I help you today?
+
+[PATIENT] I would like to book a checkup for next Thursday morning.
+
+[AGENT]   Caught it just to confirm by checkup. Do you mean a follow-up consultation? A new patient consultation, a procedure or a physical therapy session
+
+[PATIENT] I mean a new patient consultation.
+
+[AGENT]   Understand. You like to book a new patient consultation for next Thursday morning.
+
+[PATIENT] Before we continue, does your office accept Cigna insurance?
+
+[AGENT]   I don't have access to insurance plan details.
+
+[PATIENT] Can I book the appointment anyway?
+
+[AGENT]   Yes, you can still book the appointment.
+
+[PATIENT] I would like to book a new patient consultation for next Thursday morning.
+
+[AGENT]   The next available. New. Patient consultation for Thursday morning is March 5th at 9:00 a.m. with Dr. Adam Bricker, would you like to book this time?
+
+[PATIENT] I asked for next Thursday morning, not March 5th.
+
+[AGENT]   You're right, Felix. Next Thursday is February 26th but there are no available new patient consultations that morning.
+
+[PATIENT] Can you check again for any availability later that day?
+
+[AGENT]   Let me check for any available. New patient. Consultations later on Thursday, February 26th.
+
+[PATIENT] Okay, I'll wait.
+
+[AGENT]   There are no available new patient consultations for Thursday, February 26th, either morning or later. In the day, the next available Thursday is March 5th with time at 9:00.
+
+[PATIENT] Okay, thank you.
+
+--- END TRANSCRIPT ---

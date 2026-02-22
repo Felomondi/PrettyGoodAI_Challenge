@@ -1,0 +1,95 @@
+{
+  "call_sid": "CA9b6f3693e43f7654fa6fb0ee375ede1a",
+  "scenario_id": "02_weekend_scheduling",
+  "scenario_name": "Weekend Scheduling",
+  "patient_name": "Felix Omondi",
+  "timestamp": "2026-02-21T23:37:03.789690",
+  "elapsed_seconds": 105,
+  "turn_count": 11,
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes."
+    },
+    {
+      "role": "agent",
+      "text": "thanks for calling Pivot Point Orthopedics part of pretty good AI my speaking with Felix"
+    },
+    {
+      "role": "patient",
+      "text": "Yes, that's me."
+    },
+    {
+      "role": "agent",
+      "text": "Got it. Can you please provide your date of birth?"
+    },
+    {
+      "role": "patient",
+      "text": "2002-07-04."
+    },
+    {
+      "role": "agent",
+      "text": "Got It Felix."
+    },
+    {
+      "role": "patient",
+      "text": "Okay."
+    },
+    {
+      "role": "agent",
+      "text": "What can I assist you with today?"
+    },
+    {
+      "role": "patient",
+      "text": "I would like to book an appointment for this Saturday afternoon around 2pm."
+    },
+    {
+      "role": "agent",
+      "text": "What type of appointment do you need? For example, a new patient consultation, follow-up procedure or physical therapy session."
+    },
+    {
+      "role": "patient",
+      "text": "I need a new patient consultation."
+    },
+    {
+      "role": "agent",
+      "text": "Understood let me check available new patient consultation slots for this Saturday afternoon around 2:00 p.m. 1 minute."
+    },
+    {
+      "role": "patient",
+      "text": "Sure thing, I'm here."
+    },
+    {
+      "role": "agent",
+      "text": "There are no openings for a new patient consultation this Saturday afternoon."
+    },
+    {
+      "role": "patient",
+      "text": "What about next Saturday?"
+    },
+    {
+      "role": "agent",
+      "text": "Let me check availability for next Saturday afternoon."
+    },
+    {
+      "role": "patient",
+      "text": "Okay, I'll wait."
+    },
+    {
+      "role": "agent",
+      "text": "There are no openings for next Saturday afternoon. Either. Would you like to try a weekday or a different time?"
+    },
+    {
+      "role": "patient",
+      "text": "Is there a waitlist for Saturdays?"
+    },
+    {
+      "role": "agent",
+      "text": "There isn't a wait list option for Saturday."
+    },
+    {
+      "role": "patient",
+      "text": "Okay, thank you."
+    }
+  ]
+}

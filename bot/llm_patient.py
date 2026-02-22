@@ -32,6 +32,21 @@ _HOLD_PATTERNS = [
     r"i'm (looking|checking|searching)",
 ]
 
+# Agent already has a result in the same utterance — even if a hold phrase is present,
+# the patient must respond to the actual answer, not just acknowledge the hold.
+_RESULT_PATTERNS = [
+    r"there (are|is) no\b",
+    r"no (available|openings|slots|appointments)",
+    r"(couldn't|could not|can't|cannot) find",
+    r"unfortunately",
+    r"the (next|earliest) available",
+    r"i (found|have|see)\b",
+    r"would you like",
+    r"do you (want|have|prefer)",
+    r"we (don't|do not) have",
+    r"the office (is|are) closed",
+]
+
 # Agent is asking to confirm the caller's identity
 _IDENTITY_PATTERNS = [
     r"\bam i speaking (with|to)\b",
@@ -51,10 +66,21 @@ _HOLD_RESPONSES = [
 ]
 
 
-def _is_identity_question(text: str) -> bool:
-    """Returns True if the agent is asking to confirm the caller's identity."""
+def _is_identity_question(text: str, patient_name: str = "") -> bool:
+    """Returns True if the agent is cueing the patient to identify themselves.
+
+    Matches standard phrasing ('Am I speaking with...') AND any utterance that
+    contains the patient's first name — handles garbled/informal agent openings
+    like 'I think it was Felix' or 'How can I help you, Felix?'
+    """
     lower = text.lower()
-    return any(re.search(p, lower) for p in _IDENTITY_PATTERNS)
+    if any(re.search(p, lower) for p in _IDENTITY_PATTERNS):
+        return True
+    if patient_name:
+        first_name = patient_name.split()[0].lower()
+        if re.search(r'\b' + re.escape(first_name) + r'\b', lower):
+            return True
+    return False
 
 
 def _tier1_classify(agent_text: str) -> str | None:
@@ -66,7 +92,10 @@ def _tier1_classify(agent_text: str) -> str | None:
     if any(re.search(p, lower) for p in _SILENCE_PATTERNS):
         return "silence"
     if any(re.search(p, lower) for p in _HOLD_PATTERNS):
-        return "hold"
+        # Only treat as a pure hold if the utterance doesn't also contain a result.
+        # e.g. "Let me check… there are no slots" must go to GPT, not short-circuit.
+        if not any(re.search(p, lower) for p in _RESULT_PATTERNS):
+            return "hold"
     return None
 
 
@@ -79,13 +108,14 @@ def _build_system_prompt(scenario, patient: dict, has_spoken: bool) -> str:
 1. STAY COMPLETELY SILENT for any greeting (e.g. "Thanks for calling...", "Hello, this is...").
    Do NOT say anything. Do NOT say "How can I help you?" — you are the PATIENT, not the agent.
 
-2. YOUR FIRST WORDS must be "Yes, that's me." — spoken ONLY when the agent asks
-   "Am I speaking with Felix?" or similar identity-confirming question.
+2. YOUR FIRST WORDS must be "Yes, that's me." — whenever the agent says your name
+   OR asks to confirm your identity (e.g. "Am I speaking with Felix?", "I think it was Felix",
+   "Felix?", "How can I help you today, Felix?"). Any mention of your name is your cue.
 
 3. After confirming your identity, stay silent until the agent asks "How can I help you?"
    or "What can I do for you?" — then reply ONLY with: "{scenario.initial_utterance}"
 
-DO NOT speak until you are asked "Am I speaking with [name]?".
+DO NOT speak before the agent says your name or asks to identify you.
 DO NOT volunteer your reason for calling before being asked.
 """
         if not has_spoken
@@ -130,8 +160,8 @@ Agent is providing information or making a statement (not asking):
   → Say nothing, or at most "Sure." — the classifier handles most of these already.
 
 Agent says there is no availability or cannot fulfill your request:
-  → Do NOT give up. Ask for a specific alternative based on your persona.
-  → Example: "Is there anything earlier that week?", "What about 7pm?", "Can I get on a waitlist?"
+  → Do NOT give up immediately. Follow your PERSONA's specific fallback first (it defines exactly
+    what to ask next). Only use a generic alternative if the persona gives no guidance.
   → Only after TWO genuine follow-up attempts have both failed: "Okay, thank you." + {COMPLETION_SENTINEL}
 
 Agent confirms the booking, completes the task, or asks "Is there anything else?":
@@ -149,7 +179,10 @@ ABSOLUTE RULES:
    Follow your persona's fallback behaviour when the agent cannot help with the first request.
    Only after genuinely trying two alternative approaches say "Okay, thank you." + {COMPLETION_SENTINEL}.
    A single "no availability" answer is NOT two failed attempts — push back first.
-6. Correct factually wrong confirmations specifically: "I asked for [X], not [Y]."
+6. If the agent CONFIRMS or BOOKS the wrong thing (e.g. "I've booked you for Tuesday" when you
+   asked for Saturday), correct it: "I asked for [X], not [Y]." — but if the agent is merely
+   OFFERING an alternative you didn't ask for, do not use this phrasing. Simply respond to the
+   offer ("Can I get on a waitlist instead?" / "Okay, thank you." etc.).
 7. {COMPLETION_SENTINEL} goes at the very end of your final message only."""
 
 
@@ -181,7 +214,7 @@ def generate_patient_response(
 
     # ── Pre-identity gate: stay silent until agent asks "Am I speaking with X?" ─
     has_spoken = any(t["role"] == "patient" for t in history)
-    if not has_spoken and not _is_identity_question(agent_text):
+    if not has_spoken and not _is_identity_question(agent_text, patient.get("full_name", "")):
         # Agent is still in preamble (greeting, intro) — real humans don't speak yet
         return "", False
 

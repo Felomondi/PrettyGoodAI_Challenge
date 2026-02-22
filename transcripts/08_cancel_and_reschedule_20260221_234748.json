@@ -1,0 +1,127 @@
+{
+  "call_sid": "CAd764e5fa0efb8310c87b3ab3f30fbd9d",
+  "scenario_id": "08_cancel_and_reschedule",
+  "scenario_name": "Cancel and Reschedule",
+  "patient_name": "Felix Omondi",
+  "timestamp": "2026-02-21T23:47:48.607776",
+  "elapsed_seconds": 208,
+  "turn_count": 15,
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes, but Espanol."
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Felix?"
+    },
+    {
+      "role": "patient",
+      "text": "Yes, that's me."
+    },
+    {
+      "role": "agent",
+      "text": "Got it. Can you please provide your date of birth?"
+    },
+    {
+      "role": "patient",
+      "text": "2002-07-04."
+    },
+    {
+      "role": "agent",
+      "text": "Got It Felix? How may I help you today?"
+    },
+    {
+      "role": "patient",
+      "text": "I need to cancel Thursday's appointment and rebook it for Monday of next week."
+    },
+    {
+      "role": "agent",
+      "text": "Understood let me start by canceling, your Thursday appointment and then I'll help you rebook for Monday. Next week, 1 moment, while I take care of that."
+    },
+    {
+      "role": "patient",
+      "text": "Of course, take your time."
+    },
+    {
+      "role": "agent",
+      "text": "Let me check your upcoming appointments and see what's available for Monday next week."
+    },
+    {
+      "role": "patient",
+      "text": "Of course, take your time."
+    },
+    {
+      "role": "agent",
+      "text": "Felix, I see you. Have an appointment this Thursday? March 5th."
+    },
+    {
+      "role": "patient",
+      "text": "I need to cancel that appointment and rebook for Monday of next week."
+    },
+    {
+      "role": "agent",
+      "text": "Got it, just to confirm, you want to cancel your new patient appointment with provider a breaker on Thursday, March 5th at 9:00 a.m. and reschedule for Monday March 2nd."
+    },
+    {
+      "role": "patient",
+      "text": "I asked to reschedule for Monday of next week, not March 2nd."
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for clarifying. Monday of next week is March 2nd, would you like to move your appointment to that date at 9:00 a.m. with Carl mint's physical therapist?"
+    },
+    {
+      "role": "patient",
+      "text": "Yes, I would like to move my appointment to March 2nd at 9:00 a.m. with Carl Mint's physical therapist."
+    },
+    {
+      "role": "agent",
+      "text": "I'll cancel your Thursday, March 5th appointment with provider abraca. And confirm, your new appointment for Monday, March 2nd."
+    },
+    {
+      "role": "patient",
+      "text": "I asked for Monday of next week, not March 2nd."
+    },
+    {
+      "role": "agent",
+      "text": "Let me double-check the calendar today is Saturday, February 21st, Monday of next week is February 23rd."
+    },
+    {
+      "role": "patient",
+      "text": "I need to rebook for Monday, February 26th."
+    },
+    {
+      "role": "agent",
+      "text": "Hi. You want to cancel your Thursday, March 5th, appointment, and rebook for Monday. February 26th. Let me check if there are any openings for Monday, February 26th,"
+    },
+    {
+      "role": "patient",
+      "text": "Sure, take your time."
+    },
+    {
+      "role": "agent",
+      "text": "Let me fetch the available appointments for Monday, February 26th. Let me check for available appointments on Monday, February 26th."
+    },
+    {
+      "role": "patient",
+      "text": "Sure thing, I'm here."
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for waiting. I'll check for available times on Monday. February 26th, and cancel your March 5th. Appointment. Your appointment with provider. A Bricker on Thursday, March 5th at 9:00 a.m. has been canceled."
+    },
+    {
+      "role": "patient",
+      "text": "Sure, take your time."
+    },
+    {
+      "role": "agent",
+      "text": "I don't see any appointments. Currently scheduled for Monday. February 26th, would you like a morning or afternoon slot if 1 be available?"
+    },
+    {
+      "role": "patient",
+      "text": "Thank you so much for your help. I'll call back if I need anything. Goodbye."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+CALL:     Weekend Scheduling
+PATIENT:  Felix Omondi
+DATE:     2026-02-21T23:37:03.789145Z
+CALL SID: CA9b6f3693e43f7654fa6fb0ee375ede1a
+DURATION: 105s
+TURNS:    11
+
+--- TRANSCRIPT ---
+
+[AGENT]   This call may be recorded for quality and training purposes.
+
+[AGENT]   thanks for calling Pivot Point Orthopedics part of pretty good AI my speaking with Felix
+
+[PATIENT] Yes, that's me.
+
+[AGENT]   Got it. Can you please provide your date of birth?
+
+[PATIENT] 2002-07-04.
+
+[AGENT]   Got It Felix.
+
+[PATIENT] Okay.
+
+[AGENT]   What can I assist you with today?
+
+[PATIENT] I would like to book an appointment for this Saturday afternoon around 2pm.
+
+[AGENT]   What type of appointment do you need? For example, a new patient consultation, follow-up procedure or physical therapy session.
+
+[PATIENT] I need a new patient consultation.
+
+[AGENT]   Understood let me check available new patient consultation slots for this Saturday afternoon around 2:00 p.m. 1 minute.
+
+[PATIENT] Sure thing, I'm here.
+
+[AGENT]   There are no openings for a new patient consultation this Saturday afternoon.
+
+[PATIENT] What about next Saturday?
+
+[AGENT]   Let me check availability for next Saturday afternoon.
+
+[PATIENT] Okay, I'll wait.
+
+[AGENT]   There are no openings for next Saturday afternoon. Either. Would you like to try a weekday or a different time?
+
+[PATIENT] Is there a waitlist for Saturdays?
+
+[AGENT]   There isn't a wait list option for Saturday.
+
+[PATIENT] Okay, thank you.
+
+--- END TRANSCRIPT ---

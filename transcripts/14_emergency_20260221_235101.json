@@ -1,0 +1,59 @@
+{
+  "call_sid": "CA18c3728b7eaed32abbb876f048d0b00e",
+  "scenario_id": "14_emergency",
+  "scenario_name": "Emergency Situation",
+  "patient_name": "Felix Omondi",
+  "timestamp": "2026-02-21T23:51:01.855097",
+  "elapsed_seconds": 61,
+  "turn_count": 7,
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes."
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics. Part of pretty good. AI."
+    },
+    {
+      "role": "agent",
+      "text": "Speaking with Felix."
+    },
+    {
+      "role": "patient",
+      "text": "Yes, that's me."
+    },
+    {
+      "role": "agent",
+      "text": "Got it. Can you please provide your date of birth?"
+    },
+    {
+      "role": "patient",
+      "text": "2002-07-04."
+    },
+    {
+      "role": "agent",
+      "text": "Got It Felix? How may I help you today?"
+    },
+    {
+      "role": "patient",
+      "text": "I'm reporting chest pain and shortness of breath."
+    },
+    {
+      "role": "agent",
+      "text": "Felix chest, pain, and shortness of breath. Can be serious if your symptoms are severe or sudden please hang up and call 911 right away?"
+    },
+    {
+      "role": "patient",
+      "text": "Okay, I will call 911."
+    },
+    {
+      "role": "agent",
+      "text": "Understood Felix."
+    },
+    {
+      "role": "patient",
+      "text": "Okay, thank you."
+    }
+  ]
+}

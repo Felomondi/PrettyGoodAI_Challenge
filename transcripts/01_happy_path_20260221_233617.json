@@ -1,0 +1,99 @@
+{
+  "call_sid": "CA374562b2a6be24572e8ba38026e03ad2",
+  "scenario_id": "01_happy_path",
+  "scenario_name": "Happy Path Scheduling",
+  "patient_name": "Felix Omondi",
+  "timestamp": "2026-02-21T23:36:17.619142",
+  "elapsed_seconds": 149,
+  "turn_count": 12,
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes."
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics. Part of pretty good. AI."
+    },
+    {
+      "role": "agent",
+      "text": "Am I speaking with Felix?"
+    },
+    {
+      "role": "patient",
+      "text": "Yes, that's me."
+    },
+    {
+      "role": "agent",
+      "text": "Got it. Can you please provide your date of birth?"
+    },
+    {
+      "role": "patient",
+      "text": "2002-07-04."
+    },
+    {
+      "role": "agent",
+      "text": "Go to Felix. How may I help you today?"
+    },
+    {
+      "role": "patient",
+      "text": "I would like to book a new patient consultation or general checkup for sometime next week."
+    },
+    {
+      "role": "agent",
+      "text": "Understood. We offer a new patient consultation which is a 45-minute visit to review your concerns and medical history."
+    },
+    {
+      "role": "patient",
+      "text": "Okay."
+    },
+    {
+      "role": "agent",
+      "text": "Day or time next week, that works best for you morning or afternoon."
+    },
+    {
+      "role": "patient",
+      "text": "I prefer an appointment on Tuesday morning."
+    },
+    {
+      "role": "agent",
+      "text": "Got it, let me check for available. New patient consultation appointments on Tuesday Morning. Next week, 1 moment there are no openings for a new patient consultation on Tuesday Morning next week."
+    },
+    {
+      "role": "patient",
+      "text": "Can I get an appointment on Wednesday morning instead?"
+    },
+    {
+      "role": "agent",
+      "text": "Let me check for available. New patient consultation appointments on Wednesday morning. Next week, 1 moment there are no openings on Wednesday morning, next week, either."
+    },
+    {
+      "role": "patient",
+      "text": "Can I get an appointment on Thursday morning instead?"
+    },
+    {
+      "role": "agent",
+      "text": "Let me check for available. New patient consultation appointments on Thursday morning. Next week, 1 moment, there are no openings on Thursday morning, next week, either."
+    },
+    {
+      "role": "patient",
+      "text": "Can I get an appointment on Friday morning instead?"
+    },
+    {
+      "role": "agent",
+      "text": "Let me check for available new patient consultation appointments on Friday morning. Next week, 1 moment there are no openings on Friday morning. Next week either, would you like to try a different week or what can afternoon times instead?"
+    },
+    {
+      "role": "patient",
+      "text": "Can I get an appointment on Monday afternoon instead?"
+    },
+    {
+      "role": "agent",
+      "text": "Let me check for available. New patient consultation appointments on Monday afternoon. Next week, 1 moment there are no openings on Monday afternoon next week either."
+    },
+    {
+      "role": "patient",
+      "text": "Okay, thank you."
+    }
+  ]
+}

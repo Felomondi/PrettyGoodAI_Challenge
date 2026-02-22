@@ -1,0 +1,103 @@
+{
+  "call_sid": "CA5ded331b20c637fb4fd255bfd5e168d0",
+  "scenario_id": "07_insurance_mid_call",
+  "scenario_name": "Insurance Question Mid-Call",
+  "patient_name": "Felix Omondi",
+  "timestamp": "2026-02-21T23:45:18.687883",
+  "elapsed_seconds": 149,
+  "turn_count": 12,
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes."
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Felix?"
+    },
+    {
+      "role": "patient",
+      "text": "Yes, that's me."
+    },
+    {
+      "role": "agent",
+      "text": "Got it. Can you please provide your date of birth?"
+    },
+    {
+      "role": "patient",
+      "text": "2002-07-04."
+    },
+    {
+      "role": "agent",
+      "text": "Got It Felix? How may I help you today?"
+    },
+    {
+      "role": "patient",
+      "text": "I would like to book a checkup for next Thursday morning."
+    },
+    {
+      "role": "agent",
+      "text": "Caught it just to confirm by checkup. Do you mean a follow-up consultation? A new patient consultation, a procedure or a physical therapy session"
+    },
+    {
+      "role": "patient",
+      "text": "I mean a new patient consultation."
+    },
+    {
+      "role": "agent",
+      "text": "Understand. You like to book a new patient consultation for next Thursday morning."
+    },
+    {
+      "role": "patient",
+      "text": "Before we continue, does your office accept Cigna insurance?"
+    },
+    {
+      "role": "agent",
+      "text": "I don't have access to insurance plan details."
+    },
+    {
+      "role": "patient",
+      "text": "Can I book the appointment anyway?"
+    },
+    {
+      "role": "agent",
+      "text": "Yes, you can still book the appointment."
+    },
+    {
+      "role": "patient",
+      "text": "I would like to book a new patient consultation for next Thursday morning."
+    },
+    {
+      "role": "agent",
+      "text": "The next available. New. Patient consultation for Thursday morning is March 5th at 9:00 a.m. with Dr. Adam Bricker, would you like to book this time?"
+    },
+    {
+      "role": "patient",
+      "text": "I asked for next Thursday morning, not March 5th."
+    },
+    {
+      "role": "agent",
+      "text": "You're right, Felix. Next Thursday is February 26th but there are no available new patient consultations that morning."
+    },
+    {
+      "role": "patient",
+      "text": "Can you check again for any availability later that day?"
+    },
+    {
+      "role": "agent",
+      "text": "Let me check for any available. New patient. Consultations later on Thursday, February 26th."
+    },
+    {
+      "role": "patient",
+      "text": "Okay, I'll wait."
+    },
+    {
+      "role": "agent",
+      "text": "There are no available new patient consultations for Thursday, February 26th, either morning or later. In the day, the next available Thursday is March 5th with time at 9:00."
+    },
+    {
+      "role": "patient",
+      "text": "Okay, thank you."
+    }
+  ]
+}

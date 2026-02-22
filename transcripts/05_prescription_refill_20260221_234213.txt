@@ -1,0 +1,62 @@
+CALL:     Prescription Refill
+PATIENT:  Felix Omondi
+DATE:     2026-02-21T23:42:13.966333Z
+CALL SID: CAf9974e310e3e7267697cb1350e0bc094
+DURATION: 145s
+TURNS:    14
+
+--- TRANSCRIPT ---
+
+[AGENT]   This call may be recorded for quality and training purposes.
+
+[AGENT]   For calling Pivot Point Orthopedics.
+
+[AGENT]   Of pretty good. AI. Am I speaking with Felix?
+
+[PATIENT] Yes, that's me.
+
+[AGENT]   Got it. Can you please provide your date of birth?
+
+[PATIENT] 2002-07-04.
+
+[AGENT]   Cadillac. How may I help you today?
+
+[PATIENT] I am requesting a refill for lisinopril 20mg for blood pressure.
+
+[AGENT]   What's the dosage and how often do you take Lisinopril?
+
+[PATIENT] I take lisinopril 20mg once daily.
+
+[AGENT]   Got it.
+
+[PATIENT] Can you send the refill to my pharmacy?
+
+[AGENT]   Sure, when did you last have your license approval refilled?
+
+[PATIENT] I don't have that information.
+
+[AGENT]   No problem.
+
+[PATIENT] Can you send the refill to my pharmacy?
+
+[AGENT]   I can help with that. Which pharmacy do you use? Please confirm the location.
+
+[PATIENT] I will provide the pharmacy information when asked.
+
+[AGENT]   Okay, which pharmacy would you like the refill sent to, please confirm the name and location.
+
+[PATIENT] I will provide the pharmacy information when asked.
+
+[AGENT]   I do need the pharmacy name and location to process your refill.
+
+[PATIENT] I will provide the pharmacy information when asked.
+
+[AGENT]   I need the pharmacy name and location to complete your refill request, can you share that information now?
+
+[PATIENT] Okay, can I get on a waitlist instead?
+
+[AGENT]   Yes, I'm here. I've placed you on the wait list as requested.
+
+[PATIENT] No, that's all. Thank you.
+
+--- END TRANSCRIPT ---

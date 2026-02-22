@@ -1,0 +1,115 @@
+{
+  "call_sid": "CAf9974e310e3e7267697cb1350e0bc094",
+  "scenario_id": "05_prescription_refill",
+  "scenario_name": "Prescription Refill",
+  "patient_name": "Felix Omondi",
+  "timestamp": "2026-02-21T23:42:13.966915",
+  "elapsed_seconds": 145,
+  "turn_count": 14,
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes."
+    },
+    {
+      "role": "agent",
+      "text": "For calling Pivot Point Orthopedics."
+    },
+    {
+      "role": "agent",
+      "text": "Of pretty good. AI. Am I speaking with Felix?"
+    },
+    {
+      "role": "patient",
+      "text": "Yes, that's me."
+    },
+    {
+      "role": "agent",
+      "text": "Got it. Can you please provide your date of birth?"
+    },
+    {
+      "role": "patient",
+      "text": "2002-07-04."
+    },
+    {
+      "role": "agent",
+      "text": "Cadillac. How may I help you today?"
+    },
+    {
+      "role": "patient",
+      "text": "I am requesting a refill for lisinopril 20mg for blood pressure."
+    },
+    {
+      "role": "agent",
+      "text": "What's the dosage and how often do you take Lisinopril?"
+    },
+    {
+      "role": "patient",
+      "text": "I take lisinopril 20mg once daily."
+    },
+    {
+      "role": "agent",
+      "text": "Got it."
+    },
+    {
+      "role": "patient",
+      "text": "Can you send the refill to my pharmacy?"
+    },
+    {
+      "role": "agent",
+      "text": "Sure, when did you last have your license approval refilled?"
+    },
+    {
+      "role": "patient",
+      "text": "I don't have that information."
+    },
+    {
+      "role": "agent",
+      "text": "No problem."
+    },
+    {
+      "role": "patient",
+      "text": "Can you send the refill to my pharmacy?"
+    },
+    {
+      "role": "agent",
+      "text": "I can help with that. Which pharmacy do you use? Please confirm the location."
+    },
+    {
+      "role": "patient",
+      "text": "I will provide the pharmacy information when asked."
+    },
+    {
+      "role": "agent",
+      "text": "Okay, which pharmacy would you like the refill sent to, please confirm the name and location."
+    },
+    {
+      "role": "patient",
+      "text": "I will provide the pharmacy information when asked."
+    },
+    {
+      "role": "agent",
+      "text": "I do need the pharmacy name and location to process your refill."
+    },
+    {
+      "role": "patient",
+      "text": "I will provide the pharmacy information when asked."
+    },
+    {
+      "role": "agent",
+      "text": "I need the pharmacy name and location to complete your refill request, can you share that information now?"
+    },
+    {
+      "role": "patient",
+      "text": "Okay, can I get on a waitlist instead?"
+    },
+    {
+      "role": "agent",
+      "text": "Yes, I'm here. I've placed you on the wait list as requested."
+    },
+    {
+      "role": "patient",
+      "text": "No, that's all. Thank you."
+    }
+  ]
+}

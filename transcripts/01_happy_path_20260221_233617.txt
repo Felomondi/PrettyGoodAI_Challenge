@@ -1,0 +1,54 @@
+CALL:     Happy Path Scheduling
+PATIENT:  Felix Omondi
+DATE:     2026-02-21T23:36:17.618610Z
+CALL SID: CA374562b2a6be24572e8ba38026e03ad2
+DURATION: 149s
+TURNS:    12
+
+--- TRANSCRIPT ---
+
+[AGENT]   This call may be recorded for quality and training purposes.
+
+[AGENT]   Thanks for calling Pivot Point Orthopedics. Part of pretty good. AI.
+
+[AGENT]   Am I speaking with Felix?
+
+[PATIENT] Yes, that's me.
+
+[AGENT]   Got it. Can you please provide your date of birth?
+
+[PATIENT] 2002-07-04.
+
+[AGENT]   Go to Felix. How may I help you today?
+
+[PATIENT] I would like to book a new patient consultation or general checkup for sometime next week.
+
+[AGENT]   Understood. We offer a new patient consultation which is a 45-minute visit to review your concerns and medical history.
+
+[PATIENT] Okay.
+
+[AGENT]   Day or time next week, that works best for you morning or afternoon.
+
+[PATIENT] I prefer an appointment on Tuesday morning.
+
+[AGENT]   Got it, let me check for available. New patient consultation appointments on Tuesday Morning. Next week, 1 moment there are no openings for a new patient consultation on Tuesday Morning next week.
+
+[PATIENT] Can I get an appointment on Wednesday morning instead?
+
+[AGENT]   Let me check for available. New patient consultation appointments on Wednesday morning. Next week, 1 moment there are no openings on Wednesday morning, next week, either.
+
+[PATIENT] Can I get an appointment on Thursday morning instead?
+
+[AGENT]   Let me check for available. New patient consultation appointments on Thursday morning. Next week, 1 moment, there are no openings on Thursday morning, next week, either.
+
+[PATIENT] Can I get an appointment on Friday morning instead?
+
+[AGENT]   Let me check for available new patient consultation appointments on Friday morning. Next week, 1 moment there are no openings on Friday morning. Next week either, would you like to try a different week or what can afternoon times instead?
+
+[PATIENT] Can I get an appointment on Monday afternoon instead?
+
+[AGENT]   Let me check for available. New patient consultation appointments on Monday afternoon. Next week, 1 moment there are no openings on Monday afternoon next week either.
+
+[PATIENT] Okay, thank you.
+
+--- END TRANSCRIPT ---

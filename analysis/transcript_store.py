@@ -51,13 +51,4 @@ def save_transcript(call_sid: str, session_info: dict, history: list[dict]) -> t
         )
 
     print(f"[transcript] Saved → {txt_path}")
-
-    # ── Persist to Supabase ───────────────────────────────────────────────────
-    try:
-        import db.client as db
-        db.save_call(call_sid, session_info, history, txt_path=txt_path)
-        print(f"[transcript] Synced to Supabase → calls/{scenario_id}")
-    except Exception as e:
-        print(f"[transcript] Supabase sync failed (local files still saved): {e}")
-
     return txt_path, json_path

@@ -1,0 +1,71 @@
+{
+  "call_sid": "CA2215443cef4f3160541e1c78a9ee9f0b",
+  "scenario_id": "03_after_hours",
+  "scenario_name": "After-Hours Request",
+  "patient_name": "Felix Omondi",
+  "timestamp": "2026-02-21T23:38:27.462758",
+  "elapsed_seconds": 99,
+  "turn_count": 8,
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes."
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Felix?"
+    },
+    {
+      "role": "patient",
+      "text": "Yes, that's me."
+    },
+    {
+      "role": "agent",
+      "text": "Got it. Can you please provide your date of birth?"
+    },
+    {
+      "role": "patient",
+      "text": "2002-07-04."
+    },
+    {
+      "role": "agent",
+      "text": "Got It Felix? How may I help you today?"
+    },
+    {
+      "role": "patient",
+      "text": "I would like to book an appointment at 8pm on a Tuesday."
+    },
+    {
+      "role": "agent",
+      "text": "Got it. What type of appointment do you need? For example, a new patient consultation, follow consultation procedure or physical therapy session."
+    },
+    {
+      "role": "patient",
+      "text": "I need a new patient consultation."
+    },
+    {
+      "role": "agent",
+      "text": "understood let me check if there are any new patient consultation, appointments available at 8:00 p.m. on a Tuesday"
+    },
+    {
+      "role": "patient",
+      "text": "No problem, I'll hold on."
+    },
+    {
+      "role": "agent",
+      "text": "There are no openings at 8:00 p.m. on any upcoming Tuesday. Would you like to try a different time or a different day? Let me know your preference."
+    },
+    {
+      "role": "patient",
+      "text": "What is the earliest available appointment on a Tuesday?"
+    },
+    {
+      "role": "agent",
+      "text": "Let me check for the earliest available. New patient consultation on a Tuesday. 1 moment. There are no available appointments on Tuesdays in the next week."
+    },
+    {
+      "role": "patient",
+      "text": "Okay, thank you."
+    }
+  ]
+}

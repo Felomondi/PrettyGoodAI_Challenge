@@ -1,0 +1,40 @@
+CALL:     After-Hours Request
+PATIENT:  Felix Omondi
+DATE:     2026-02-21T23:38:27.462038Z
+CALL SID: CA2215443cef4f3160541e1c78a9ee9f0b
+DURATION: 99s
+TURNS:    8
+
+--- TRANSCRIPT ---
+
+[AGENT]   This call may be recorded for quality and training purposes.
+
+[AGENT]   Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Felix?
+
+[PATIENT] Yes, that's me.
+
+[AGENT]   Got it. Can you please provide your date of birth?
+
+[PATIENT] 2002-07-04.
+
+[AGENT]   Got It Felix? How may I help you today?
+
+[PATIENT] I would like to book an appointment at 8pm on a Tuesday.
+
+[AGENT]   Got it. What type of appointment do you need? For example, a new patient consultation, follow consultation procedure or physical therapy session.
+
+[PATIENT] I need a new patient consultation.
+
+[AGENT]   understood let me check if there are any new patient consultation, appointments available at 8:00 p.m. on a Tuesday
+
+[PATIENT] No problem, I'll hold on.
+
+[AGENT]   There are no openings at 8:00 p.m. on any upcoming Tuesday. Would you like to try a different time or a different day? Let me know your preference.
+
+[PATIENT] What is the earliest available appointment on a Tuesday?
+
+[AGENT]   Let me check for the earliest available. New patient consultation on a Tuesday. 1 moment. There are no available appointments on Tuesdays in the next week.
+
+[PATIENT] Okay, thank you.
+
+--- END TRANSCRIPT ---

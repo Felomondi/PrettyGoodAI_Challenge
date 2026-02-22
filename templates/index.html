@@ -8,11 +8,8 @@
   <div class="index-header">
     <div>
       <h1>Ready to Simulate</h1>
-      <p class="subtitle">
-        Calls go to <strong>+1-805-439-8008</strong> as the patient below.
-      </p>
+      <p class="subtitle">Calls go to <strong>+1-805-439-8008</strong> as the patient below.</p>
     </div>
-
     <div class="patient-card">
       <div class="patient-avatar">{{ patient.full_name[0] }}</div>
       <div class="patient-info">
@@ -23,10 +20,8 @@
   </div>
 
   <div class="scenarios-toolbar">
-    <span class="scenarios-label">{{ scenarios | length }} scenarios</span>
-    <form method="POST" action="/simulate">
-      <button type="submit" class="btn btn-simulate-all">Run All Scenarios</button>
-    </form>
+    <span class="scenarios-label" id="toolbar-label">{{ scenarios | length }} scenarios</span>
+    <button id="btn-run-all" class="btn-simulate-all" onclick="runAll()">Run All Scenarios</button>
   </div>
 
   <table class="scenarios-table">
@@ -40,14 +35,12 @@
     </thead>
     <tbody>
       {% for s in scenarios %}
-      <tr>
+      <tr id="row-{{ s.id }}">
         <td class="col-num">{{ loop.index }}</td>
         <td class="col-name">{{ s.name }}</td>
         <td><span class="tag tag-{{ s.edge_case_type }}">{{ s.edge_case_type }}</span></td>
         <td class="col-action">
-          <form method="POST" action="/simulate/{{ s.id }}">
-            <button type="submit" class="btn-run">Run</button>
-          </form>
+          <button class="btn-run" onclick="runScenario('{{ s.id }}')">Run</button>
         </td>
       </tr>
       {% endfor %}
@@ -55,17 +48,176 @@
   </table>
 
   <p class="change-patient">
-    Wrong patient? <a href="/register">Register a different one</a>
-    or <a href="/patients">manage patients</a>.
+    To change patient details, update <code>PATIENT_FULL_NAME</code> and <code>PATIENT_DOB</code> in <code>.env</code>.
   </p>
 
   {% else %}
-  <h1>No Patient Registered</h1>
-  <p class="subtitle">
-    Register a patient first. The bot will call as that patient identity.
-  </p>
-  <a href="/register" class="btn">Register Patient</a>
+  <h1>Patient Not Configured</h1>
+  <p class="subtitle">Set <code>PATIENT_FULL_NAME</code> and <code>PATIENT_DOB</code> in your <code>.env</code> file, then restart the server.</p>
   {% endif %}
 
 </div>
+
+<script>
+const rowStates = {};   // scenario_id → 'idle'|'queued'|'calling'|'done'|'error'
+let watchIds    = [];   // currently tracked scenario ids
+let pollTimer   = null;
+let runAllMode  = false;
+
+// ── Row rendering ──────────────────────────────────────────────────────────────
+
+function setRowState(id, state) {
+  if (rowStates[id] === state) return;   // no-op if nothing changed
+  rowStates[id] = state;
+  const cell = document.querySelector(`#row-${id} .col-action`);
+  if (!cell) return;
+
+  switch (state) {
+    case 'calling':
+      cell.innerHTML = `<button class="btn-run btn-calling" disabled>Calling…</button>`;
+      break;
+    case 'queued':
+      cell.innerHTML = `<button class="btn-run btn-queued" disabled>Queued</button>`;
+      break;
+    case 'done':
+      cell.innerHTML = `
+        <span class="state-label state-done">Done</span>
+        <button class="btn-run" onclick="runScenario('${id}')">Call Again</button>`;
+      break;
+    case 'error':
+      cell.innerHTML = `
+        <span class="state-label state-error">Error</span>
+        <button class="btn-run" onclick="runScenario('${id}')">Retry</button>`;
+      break;
+    default:
+      cell.innerHTML = `<button class="btn-run" onclick="runScenario('${id}')">Run</button>`;
+  }
+}
+
+// ── Single scenario ────────────────────────────────────────────────────────────
+
+function runScenario(id) {
+  if (rowStates[id] === 'calling' || rowStates[id] === 'queued') return;
+  setRowState(id, 'calling');
+
+  fetch('/simulate/' + id, { method: 'POST' })
+    .then(r => r.json())
+    .then(data => {
+      if (data.ok) {
+        watchIds = [id];
+        runAllMode = false;
+        schedulePoll();
+      } else {
+        setRowState(id, data.reason === 'already_running' ? 'idle' : 'error');
+        if (data.reason === 'already_running') {
+          showBanner('A call is already in progress. Wait for it to finish.');
+        }
+      }
+    })
+    .catch(() => setRowState(id, 'error'));
+}
+
+// ── Run All ────────────────────────────────────────────────────────────────────
+
+function runAll() {
+  const btn = document.getElementById('btn-run-all');
+  if (btn.disabled) return;
+  btn.disabled = true;
+  btn.textContent = 'Starting…';
+
+  fetch('/simulate', { method: 'POST' })
+    .then(r => r.json())
+    .then(data => {
+      if (data.ok) {
+        const allIds = allScenarioIds();
+        allIds.forEach(id => setRowState(id, 'queued'));
+        watchIds   = allIds;
+        runAllMode = true;
+        schedulePoll();
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Run All Scenarios';
+        if (data.reason === 'already_running') {
+          showBanner('A call is already in progress. Wait for it to finish.');
+        }
+      }
+    })
+    .catch(() => {
+      btn.disabled = false;
+      btn.textContent = 'Run All Scenarios';
+    });
+}
+
+// ── Polling ────────────────────────────────────────────────────────────────────
+
+function schedulePoll() {
+  clearTimeout(pollTimer);
+  pollTimer = setTimeout(doPoll, 3000);
+}
+
+function doPoll() {
+  fetch('/api/status')
+    .then(r => r.json())
+    .then(state => {
+      const callMap = {};
+      (state.calls || []).forEach(c => { callMap[c.scenario_id] = c.status; });
+
+      let inFlight = 0;
+      watchIds.forEach(id => {
+        const s = callMap[id];
+        if      (s === 'complete')    { setRowState(id, 'done');    }
+        else if (s === 'error')       { setRowState(id, 'error');   }
+        else if (s === 'in_progress') { setRowState(id, 'calling'); inFlight++; }
+        else if (s === 'pending')     { setRowState(id, 'queued');  inFlight++; }
+        else if (rowStates[id] === 'calling') { inFlight++; } // sim thread starting up
+      });
+
+      if (runAllMode) updateToolbar();
+
+      if (inFlight > 0 || state.status === 'running') {
+        schedulePoll();
+      } else if (runAllMode) {
+        finishRunAll();
+      }
+    })
+    .catch(() => schedulePoll());
+}
+
+// ── Toolbar helpers ────────────────────────────────────────────────────────────
+
+function updateToolbar() {
+  const total   = watchIds.length;
+  const settled = watchIds.filter(id => rowStates[id] === 'done' || rowStates[id] === 'error').length;
+  document.getElementById('toolbar-label').textContent = `${settled} / ${total} complete`;
+  const btn = document.getElementById('btn-run-all');
+  btn.textContent = `Running… (${settled}/${total})`;
+}
+
+function finishRunAll() {
+  const total = watchIds.length;
+  document.getElementById('toolbar-label').textContent = `${total} / ${total} complete`;
+  const btn = document.getElementById('btn-run-all');
+  btn.disabled = false;
+  btn.textContent = 'Run All Scenarios';
+}
+
+// ── Utilities ──────────────────────────────────────────────────────────────────
+
+function allScenarioIds() {
+  return [...document.querySelectorAll('tr[id^="row-"]')].map(r => r.id.slice(4));
+}
+
+function showBanner(msg) {
+  let b = document.getElementById('flash-banner');
+  if (!b) {
+    b = document.createElement('div');
+    b.id = 'flash-banner';
+    b.className = 'alert alert-error';
+    document.querySelector('.card').prepend(b);
+  }
+  b.textContent = msg;
+  b.style.display = '';
+  setTimeout(() => { b.style.display = 'none'; }, 4000);
+}
+</script>
 {% endblock %}

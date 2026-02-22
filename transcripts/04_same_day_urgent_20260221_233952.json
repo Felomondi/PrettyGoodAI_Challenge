@@ -1,0 +1,71 @@
+{
+  "call_sid": "CAa510909be8f4c5ec696328fc7acf26ba",
+  "scenario_id": "04_same_day_urgent",
+  "scenario_name": "Same-Day Urgent",
+  "patient_name": "Felix Omondi",
+  "timestamp": "2026-02-21T23:39:52.554878",
+  "elapsed_seconds": 93,
+  "turn_count": 8,
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes."
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Felix?"
+    },
+    {
+      "role": "patient",
+      "text": "Yes, that's me."
+    },
+    {
+      "role": "agent",
+      "text": "Got it. Can you please provide your date of birth?"
+    },
+    {
+      "role": "patient",
+      "text": "2002-07-04."
+    },
+    {
+      "role": "agent",
+      "text": "God of Felix. How may I help you today?"
+    },
+    {
+      "role": "patient",
+      "text": "I need to be seen today for a fever that started last night."
+    },
+    {
+      "role": "agent",
+      "text": "Understood let me check for same-day appointment. Availability for you? Felix, a check for same day, appointments."
+    },
+    {
+      "role": "patient",
+      "text": "Of course, take your time."
+    },
+    {
+      "role": "agent",
+      "text": "As soon as the opening is Tuesday, February 24th at 10:00 a.m. with Dr. Doogie Howser"
+    },
+    {
+      "role": "patient",
+      "text": "I need to be seen today, not Tuesday. Do you have any other options?"
+    },
+    {
+      "role": "agent",
+      "text": "At this time, there are no openings available today. The earliest I can offer is Tuesday, February 24th. Would you like to book that?"
+    },
+    {
+      "role": "patient",
+      "text": "I need to be seen today. Can you check if there's an urgent care option available?"
+    },
+    {
+      "role": "agent",
+      "text": "I don't have access to Urgent Care schedules, but I can let the clinic know you need to be seen today for a fever. They'll get back to you as soon as possible."
+    },
+    {
+      "role": "patient",
+      "text": "Okay, thank you."
+    }
+  ]
+}

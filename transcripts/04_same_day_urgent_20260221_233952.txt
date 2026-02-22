@@ -1,0 +1,40 @@
+CALL:     Same-Day Urgent
+PATIENT:  Felix Omondi
+DATE:     2026-02-21T23:39:52.554440Z
+CALL SID: CAa510909be8f4c5ec696328fc7acf26ba
+DURATION: 93s
+TURNS:    8
+
+--- TRANSCRIPT ---
+
+[AGENT]   This call may be recorded for quality and training purposes.
+
+[AGENT]   Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Felix?
+
+[PATIENT] Yes, that's me.
+
+[AGENT]   Got it. Can you please provide your date of birth?
+
+[PATIENT] 2002-07-04.
+
+[AGENT]   God of Felix. How may I help you today?
+
+[PATIENT] I need to be seen today for a fever that started last night.
+
+[AGENT]   Understood let me check for same-day appointment. Availability for you? Felix, a check for same day, appointments.
+
+[PATIENT] Of course, take your time.
+
+[AGENT]   As soon as the opening is Tuesday, February 24th at 10:00 a.m. with Dr. Doogie Howser
+
+[PATIENT] I need to be seen today, not Tuesday. Do you have any other options?
+
+[AGENT]   At this time, there are no openings available today. The earliest I can offer is Tuesday, February 24th. Would you like to book that?
+
+[PATIENT] I need to be seen today. Can you check if there's an urgent care option available?
+
+[AGENT]   I don't have access to Urgent Care schedules, but I can let the clinic know you need to be seen today for a fever. They'll get back to you as soon as possible.
+
+[PATIENT] Okay, thank you.
+
+--- END TRANSCRIPT ---

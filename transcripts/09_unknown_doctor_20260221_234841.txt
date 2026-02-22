@@ -1,0 +1,60 @@
+CALL:     Unknown Doctor Request
+PATIENT:  Felix Omondi
+DATE:     2026-02-21T23:48:41.566283Z
+CALL SID: CA4ff7587d6c4db2d6237594d0b426423d
+DURATION: 171s
+TURNS:    13
+
+--- TRANSCRIPT ---
+
+[AGENT]   This call may be recorded for quality and training purposes.
+
+[AGENT]   Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Felix?
+
+[PATIENT] Yes, that's me.
+
+[AGENT]   Got it. Can you please provide your date of birth?
+
+[PATIENT] 2002-07-04.
+
+[AGENT]   Out of Felix. How may I help you today?
+
+[PATIENT] I would like to see Dr. Martinez for back pain.
+
+[AGENT]   We don't have a doctor Martinez at Pivot Point Orthopedics.
+
+[PATIENT] Can you schedule me with any available provider?
+
+[AGENT]   Got it, let me check the soonest. Available appointments for back pain with any provider.
+
+[PATIENT] Sure, take your time.
+
+[AGENT]   There are no openings for new patient consultations in the next week. Would you like to look for appointments later in March or a specific date that works for you?
+
+[PATIENT] Can you check for any available appointments in March?
+
+[AGENT]   Okay, I'll check for new patient consultation openings with any provider starting in March 30th.
+
+[PATIENT] Sure thing, I'm here.
+
+[AGENT]   The next available appointment is Thursday, March 5th at 9:45 a.m. with Dr. Bricker
+
+[PATIENT] I asked for an appointment starting in March 30th, not March 5th.
+
+[AGENT]   You want to look for opening starting March 30th.
+
+[PATIENT] Yes, please check for openings starting March 30th.
+
+[AGENT]   The next available appointment is Monday March 30th at 9:00 a.m. with Dr. Bricker would you like to book the slot or hear about other times that day?
+
+[PATIENT] I would like to book the slot on March 30th at 9:00 a.m. with Dr. Bricker.
+
+[AGENT]   Just to confirm you want to book Monday March 30th at 9:00 a.m. with Dr. Bricker for a new patient consultation about back pain. Is that correct?
+
+[PATIENT] Yes, that's correct.
+
+[AGENT]   Your appointment is set for Monday. March 30th at 9:00 a.m. with Dr. Bricker please bring your government issue, photo ID and your insurance card.
+
+[PATIENT] No, that's all. Thank you.
+
+--- END TRANSCRIPT ---

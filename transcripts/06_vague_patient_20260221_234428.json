@@ -1,0 +1,127 @@
+{
+  "call_sid": "CA2813c1ee788ec8997861a22029660dd2",
+  "scenario_id": "06_vague_patient",
+  "scenario_name": "Vague Patient",
+  "patient_name": "Felix Omondi",
+  "timestamp": "2026-02-21T23:44:28.106715",
+  "elapsed_seconds": 188,
+  "turn_count": 15,
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes."
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Felix?"
+    },
+    {
+      "role": "patient",
+      "text": "Yes, that's me."
+    },
+    {
+      "role": "agent",
+      "text": "Got it. Can you please provide your date of birth?"
+    },
+    {
+      "role": "patient",
+      "text": "2002-07-04."
+    },
+    {
+      "role": "agent",
+      "text": "Got It Felix."
+    },
+    {
+      "role": "patient",
+      "text": "Okay."
+    },
+    {
+      "role": "agent",
+      "text": "What can I assist you with today? Felix, are you calling about an appointment medication insurance or something else?"
+    },
+    {
+      "role": "patient",
+      "text": "I want to schedule an appointment."
+    },
+    {
+      "role": "agent",
+      "text": "Sure, what type of appointment would you like to schedule? For example, a new patient consultation, follow-up consultation, procedure or physical therapy session."
+    },
+    {
+      "role": "patient",
+      "text": "I would like to schedule a new patient consultation."
+    },
+    {
+      "role": "agent",
+      "text": "Got it. Would you like to see a specific provider or are you open to the next available appointment?"
+    },
+    {
+      "role": "patient",
+      "text": "I am open to the next available appointment."
+    },
+    {
+      "role": "agent",
+      "text": "Honest to let me check the next available times for a new patient consultation 1 moment while I fetch the openings, there are no openings for a new patient consultation in the next week would you like to look for available times later in March or try a different month?"
+    },
+    {
+      "role": "patient",
+      "text": "Can I look for available times later in March?"
+    },
+    {
+      "role": "agent",
+      "text": "Sure, I'll check for openings later in March."
+    },
+    {
+      "role": "patient",
+      "text": "Sure thing, I'm here."
+    },
+    {
+      "role": "agent",
+      "text": "Great. I'll search for available. New patient consultation appointment starting in March 1st. While I check the schedule the next available. New patient, PS,"
+    },
+    {
+      "role": "patient",
+      "text": "Sure."
+    },
+    {
+      "role": "agent",
+      "text": "The earliest slot is at 9:00 a.m. with Dr. Adam Bricker."
+    },
+    {
+      "role": "patient",
+      "text": "I would like to book that appointment."
+    },
+    {
+      "role": "agent",
+      "text": "Just to confirm you'd like to book a new patient consultation with Dr. Adam Bricker on Thursday March 5th at 9:00 a.m. is that correct?"
+    },
+    {
+      "role": "patient",
+      "text": "I asked for March 1st, not March 5th."
+    },
+    {
+      "role": "agent",
+      "text": "I understand there are no available appointments on March 1st but the soonest opening is March 5th. Would you like to book March 5th at 9:00 a.m., or should I check for other dates later in March?"
+    },
+    {
+      "role": "patient",
+      "text": "I will book March 5th at 9:00 a.m. with Dr. Adam Bricker."
+    },
+    {
+      "role": "agent",
+      "text": "Got it. What is the main reason for your visit? So I can include it with your appointment booking."
+    },
+    {
+      "role": "patient",
+      "text": "I have pain in my knee."
+    },
+    {
+      "role": "agent",
+      "text": "Understood."
+    },
+    {
+      "role": "patient",
+      "text": "Thank you so much for your help. I'll call back if I need anything. Goodbye."
+    }
+  ]
+}

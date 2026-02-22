@@ -1,6 +1,5 @@
 import copy
 import os
-import re
 import time
 import threading
 
@@ -10,7 +9,7 @@ from bot.twiml_builder import build_gather_response, build_hangup_response, buil
 from bot.conversation_manager import manager
 from bot.llm_patient import generate_patient_response
 from analysis.transcript_store import save_transcript
-import db.client as db
+from db.client import get_active_patient
 
 app = Flask(
     __name__,
@@ -239,16 +238,17 @@ def index():
 def simulate():
     patient = _get_active_patient()
     if not patient:
-        return redirect(url_for("index"))
+        return jsonify({"ok": False, "reason": "no_patient"}), 400
 
     with _sim_lock:
         already_running = _sim_state["status"] == "running"
 
-    if not already_running:
-        t = threading.Thread(target=_run_simulation, args=(patient,), daemon=True)
-        t.start()
+    if already_running:
+        return jsonify({"ok": False, "reason": "already_running"}), 409
 
-    return redirect(url_for("progress"))
+    t = threading.Thread(target=_run_simulation, args=(patient,), daemon=True)
+    t.start()
+    return jsonify({"ok": True})
 
 
 @app.route("/simulate/<scenario_id>", methods=["POST"])
@@ -256,96 +256,29 @@ def simulate_one(scenario_id: str):
     from scenarios.patient_scenarios import ALL_SCENARIOS
     patient = _get_active_patient()
     if not patient:
-        return redirect(url_for("index"))
+        return jsonify({"ok": False, "reason": "no_patient"}), 400
 
     scenario = next((s for s in ALL_SCENARIOS if s.id == scenario_id), None)
     if not scenario:
-        return redirect(url_for("index"))
+        return jsonify({"ok": False, "reason": "not_found"}), 404
 
     with _sim_lock:
         already_running = _sim_state["status"] == "running"
 
-    if not already_running:
-        t = threading.Thread(target=_run_simulation, args=(patient, [scenario]), daemon=True)
-        t.start()
+    if already_running:
+        return jsonify({"ok": False, "reason": "already_running"}), 409
 
-    return redirect(url_for("progress"))
-
-
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    from_number = os.getenv("TWILIO_FROM_NUMBER", "")
-
-    if request.method == "POST":
-        full_name = request.form.get("full_name", "").strip()
-        email = request.form.get("email", "").strip().lower()
-        phone = request.form.get("phone", "").strip()
-        dob = request.form.get("dob", "").strip()
-
-        error = _validate_registration(full_name, email, phone, dob)
-        if error:
-            return render_template(
-                "register.html", error=error, values=request.form, from_number=from_number
-            )
-
-        try:
-            db.register_patient(full_name, email, phone, dob)
-        except Exception as e:
-            err = str(e).lower()
-            if "unique" in err or "duplicate" in err or "already exists" in err:
-                error = "A patient with that email or phone number is already registered."
-            else:
-                error = f"Registration failed: {e}"
-            return render_template(
-                "register.html", error=error, values=request.form, from_number=from_number
-            )
-
-        return redirect(url_for("index"))
-
-    return render_template("register.html", error=None, values={}, from_number=from_number)
+    t = threading.Thread(target=_run_simulation, args=(patient, [scenario]), daemon=True)
+    t.start()
+    return jsonify({"ok": True})
 
 
 def _get_active_patient() -> dict | None:
-    """Return the first registered patient, or None if none exist."""
-    try:
-        patients = db.get_all_patients()
-        return patients[0] if patients else None
-    except Exception:
-        return None
-
-
-@app.route("/progress")
-def progress():
-    return render_template("progress.html")
+    """Return patient identity from environment variables."""
+    return get_active_patient()
 
 
 @app.route("/api/status")
 def api_status():
     with _sim_lock:
         return jsonify(copy.deepcopy(_sim_state))
-
-
-@app.route("/patients")
-def patients():
-    all_patients = db.get_all_patients()
-    return render_template("patients.html", patients=all_patients)
-
-
-@app.route("/patients/<int:patient_id>/delete", methods=["POST"])
-def delete_patient(patient_id: int):
-    db.delete_patient(patient_id)
-    return redirect(url_for("patients"))
-
-
-def _validate_registration(
-    full_name: str, email: str, phone: str, dob: str
-) -> str | None:
-    if not full_name:
-        return "Full name is required."
-    if not email or "@" not in email:
-        return "A valid email address is required."
-    if not re.match(r"^\+1\d{10}$", phone):
-        return "Phone must be in E.164 format: +1XXXXXXXXXX (10 digits after +1)."
-    if not dob:
-        return "Date of birth is required."
-    return None

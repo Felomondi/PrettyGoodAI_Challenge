@@ -348,8 +348,9 @@ tbody tr:hover {
 }
 
 .scenarios-table .col-action {
-  width: 72px;
+  width: 170px;
   text-align: right;
+  white-space: nowrap;
 }
 
 /* ── Run button (inline per scenario) ──────────────────────────────────────── */
@@ -371,6 +372,43 @@ tbody tr:hover {
   background: #e5e7eb;
   border-color: #9ca3af;
 }
+
+.btn-run + .btn-run,
+.state-label + .btn-run {
+  margin-left: 0.4rem;
+}
+
+.btn-calling {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #bfdbfe;
+  cursor: not-allowed;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.btn-queued {
+  background: #f9fafb;
+  color: #9ca3af;
+  border-color: #e5e7eb;
+  cursor: not-allowed;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.55; }
+}
+
+.state-label {
+  display: inline-block;
+  padding: 0.22rem 0.55rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.state-done  { background: #f0fdf4; color: #16a34a; }
+.state-error { background: #fef2f2; color: #dc2626; }
 
 /* ── Edge-case type tags ────────────────────────────────────────────────────── */
 
