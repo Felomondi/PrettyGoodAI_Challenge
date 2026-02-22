@@ -1,6 +1,6 @@
 # PrettyGoodAI Voice Bot
 
-Automated voice bot that calls the Athena test line (`+1-805-439-8008`), simulates patient conversations, and generates a bug report.
+Automated voice bot that calls the Athena test line (`+1-805-439-8008`), and simulates patient conversations, and generates a bug report.
 
 ## Setup
 
